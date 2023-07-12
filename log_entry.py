@@ -19,16 +19,16 @@ def create_time():
 def append_in_file(message, atr_file):
     time = create_time()
     log_str = f"{time} {message}"
-    with open(f"{WORK_DIR}/log.txt", atr_file, encoding='utf-8') as file:
+    with open(f"{WORK_DIR}/log_record_ik.log", atr_file, encoding='utf-8') as file:
         file.write(f'\n{log_str}')
     send_message(log_str)   
 
 def log_entry(*message):
     if DEBUG_MODE == "on":
         print(*message)
-    check_file = path.isfile(f"{WORK_DIR}\log.txt")
+    check_file = path.isfile(f"{WORK_DIR}\log_record_ik.log")
     if check_file:
-        log_file = path.join(f'{WORK_DIR}\log.txt')
+        log_file = path.join(f'{WORK_DIR}\log_record_ik.log')
         if path.getsize(log_file) > 5242880:
             remove(log_file)
 
